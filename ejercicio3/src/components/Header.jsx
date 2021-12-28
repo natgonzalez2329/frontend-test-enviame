@@ -20,10 +20,9 @@ const Header = ({
     setCharacters(nameResult);
   };
 
-  const handleChangeSearch = (e) => {
+  const handleSubmitSearch = (e) => {
     e.preventDefault();
-    setSearchName(e.target.value);
-    charactersFilter(e.target.value);
+    charactersFilter(searchName);
   };
 
   return (
@@ -90,14 +89,14 @@ const Header = ({
                 </ul>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={(e) => handleSubmitSearch(e)}>
               <input
                 className="form-control me-2"
                 type="search"
                 value={searchName}
                 placeholder="Search Name"
                 aria-label="Search"
-                onChange={(e) => handleChangeSearch(e)}
+                onChange={(e) => setSearchName(e.target.value)}
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
