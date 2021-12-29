@@ -1,32 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import ModalEdit from "./ModalEdit";
+import "../style/characterCard.css";
 
-const CharacterCard = ({ characters }) => {
+const CharacterCard = ({ characters, setCharacters }) => {
+
+  const [nameModified, setNameModified] = useState('');
+  const [descriptionModified,  setDescriptionModified] = useState('');
+  const [id,  setId] = useState('');
+
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-4">
-      {characters &&
+    <div className="characterCard">
+      {characters.length === 0 ? (
+        <h1 className="text-dark ">No results found</h1>
+      ) : (
         characters.map((character) => (
-          <div className="col" key={character.id}>
-            <div className="card" style={{ width: "18rem", height: "36rem" }}>
+            <div className="card bg-dark text-white" key={character.id}>
               <img
                 src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                 className="card-img-top"
-                alt="..."
+                alt="marvel character"
               />
               <div className="card-body">
-                <ModalEdit
-                  nameEdit={character.name}
-                  descriptionEdit={character.description}
-                />
-                <h5 class="card-title">{character.name}</h5>
+                <div className="d-flex flex-row justify-content-between">
                 <small class="text-muted">
                   {character.modified.split("T")[0].split("-").join("/")}
                 </small>
-                <p className="card-text">{character.description}</p>
+                <ModalEdit 
+                characters={characters}
+                setCharacters={setCharacters}
+                character={character} 
+                setNameModified={setNameModified} 
+                nameModified={nameModified} 
+                setDescriptionModified={setDescriptionModified}
+                descriptionModified={descriptionModified}
+                setId={setId}
+                id={id} />
+              </div>
+                <h5 class="card-title text-center">{character.name}</h5>
+                <small className="card-text">{character.description ? character.description : "No description available" }</small>
               </div>
             </div>
-          </div>
-        ))}
+        )))}
     </div>
   );
 };

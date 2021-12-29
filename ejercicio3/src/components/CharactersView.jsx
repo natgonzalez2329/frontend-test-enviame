@@ -1,10 +1,13 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
+import "../style/charactersView.css";
 
-const CharactersView = ({ characters }) => {
+const CharactersView = ({ characters, setCharacters }) => {
   return (
-    <div>
-      <CharacterCard characters={characters} />
+    <div className="charactersView my-5">
+      <CharacterCard 
+      characters={characters}
+      setCharacters={setCharacters} />
     </div>
   );
 };
