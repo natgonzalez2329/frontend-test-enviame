@@ -19,4 +19,5 @@ npm start
 ## Ejercicio 3
 
 Se encuentra dentro de la _carpeta_ _ejercicio3_, descripción más ampliada en su respectivo Readme.
+[Ver Página Web de Marvel](https://determined-kirch-b58b00.netlify.app/)
 
