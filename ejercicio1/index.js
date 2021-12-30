@@ -59,9 +59,9 @@ const primeValidator = () => {
   <label for="tentacles">Rules: Enter two numbers. Decreasing range between A and B.</label>
   <div class="d-flex flex-row justify-content-center m-2">
     <input type="number" class="form-control m-2" style="width: 4rem; height: 4rem" id="minNumber"
-      name="tentacles" min="1" max="10" />
+      name="tentacles" min="1" max="99" />
     <input type="number" class="form-control m-2" style="width: 4rem; height: 4rem" id="maxNumber"
-      name="tentacles" min="1" max="10" />
+      name="tentacles" min="1" max="99" />
   </div>
   <div class="d-flex justify-content-center">
     <button type="button" id="validator__button" class="btn btn-outline-warning">
